@@ -39,7 +39,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-// 1. Session Middleware 
+// 1.  Session Middleware 
 app.UseSession();
 
 // 2. Authentication Middleware (Identifies WHO the user is) 
