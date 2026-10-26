@@ -1,10 +1,37 @@
-﻿@{
+﻿@model List<string>
+
+@{
     ViewData["Title"] = "Students";
 }
+
 <h2>@ViewBag.Title</h2>
-<p>@ViewBag.Message</p>
-<ul>
-    <li><a href="/student/details/1">Student 1</a></li>
-    <li><a href="/student/details/2">Student 2</a></li>
-    <li><a href="/student/details/3">Student 3</a></li>
-</ul> 
+<p><em>@ViewData["SubTitle"]</em></p>
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 1;
+            }
+            @foreach (var student in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@student</td>
+                </tr>
+                i++;
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No students found.</p>
+}
