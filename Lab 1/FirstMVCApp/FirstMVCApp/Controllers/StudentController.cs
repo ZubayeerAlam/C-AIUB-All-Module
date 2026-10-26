@@ -7,8 +7,14 @@ namespace FirstMVCApp.Controllers
         public IActionResult Student()
         {
             ViewBag.Title = "Student List";
-            ViewBag.Message = "Welcome to the Student Module";
-            return View();
+            ViewData["SubTitle"] = "Enrolled students this semester";
+
+            var students = new List<string>
+    {
+        "Alice Rahman", "Bob Hasan", "Carol Akter", "David Khan"
+    };
+
+            return View(students);
         }
         // Displays details for a specific student 
         public IActionResult Details(int id)
